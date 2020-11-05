@@ -1,0 +1,7 @@
+<div>
+  <ul *ngIf="currentInfo">
+    <li *ngFor="let user of currentInfo">
+      <h2>{{ user.name.first }}</h2>
+    </li>
+  </ul>
+</div>
