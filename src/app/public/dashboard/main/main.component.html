@@ -1,12 +1,12 @@
 <div class="container">
-  <ul *ngIf="currentInfo" class="user-container">
-    <li *ngFor="let user of currentInfo" class="users shadow-sm">
+  <ul *ngIf="currentInfo" class="user-container row">
+    <li *ngFor="let user of currentInfo" class="users shadow-sm col-md-auto">
+      <img src="{{ user.picture.medium }}" alt="{{ user.name.first }}">
       <h6>Nombre: {{ user.name.first }} {{ user.name.last }}</h6>
       <p>Edad: {{ user.dob.age }}</p>
       <p>Telefono: {{ user.phone }}</p>
       <p>Mail: {{ user.email }}</p>
       <p>Pais de Origen: {{ user.location.country }}</p>
-      <img src="{{ user.picture.medium }}" alt="{{ user.name.first }}">
     </li>
   </ul>
 </div>
