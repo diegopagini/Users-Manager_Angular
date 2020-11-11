@@ -6,13 +6,13 @@
 
 .nav {
   grid-column: 1;
-  grid-row: 1;
-  background: #f8f9fa;
+  grid-row: 1/3;
 }
 
 .main {
   grid-row: 1;
   grid-column: 2;
+  background-color: #95ca3e;
 }
 
 .list {

@@ -4,13 +4,19 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background: #f8f9fa;
+  background: #95ca3e;
 
   .nav-item {
     width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
     margin: 10px;
-    background: #f8f9fa;
+    background: #95ca3e;
   }
+}
+
+.btn {
+  max-width: 90%;
+  background: #ffffff;
+
 }
