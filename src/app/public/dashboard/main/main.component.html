@@ -1,12 +1,10 @@
 <div class="container">
   <ul *ngIf="currentInfo" class="user-container row">
     <li *ngFor="let user of currentInfo" class="users shadow-sm col-md-auto">
-      <img src="{{ user.picture.medium }}" alt="{{ user.name.first }}">
+      <img src="{{ user.picture.medium }}" alt="{{ user.name.first }}" class="shadow">
       <h6>Nombre: {{ user.name.first }} {{ user.name.last }}</h6>
       <p>Edad: {{ user.dob.age }}</p>
-      <p>Telefono: {{ user.phone }}</p>
-      <p>Mail: {{ user.email }}</p>
-      <p>Pais de Origen: {{ user.location.country }}</p>
+      <button class="btn btn-success" routerLink="/users" routerLinkActive="active">Mostrar Más</button>
     </li>
   </ul>
 </div>
