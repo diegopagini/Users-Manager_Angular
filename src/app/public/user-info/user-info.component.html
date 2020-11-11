@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card shadow" style="width: 18rem;">
+    <img src="{{ currentInfo[0].picture.large }}" class="card-img-top" alt="...">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Nombre: {{ currentInfo[0].name.first}}</li>
+      <li class="list-group-item">Apellido: {{ currentInfo[0].name.last}}</li>
+      <li class="list-group-item">Edad: {{ currentInfo[0].dob.age}}</li>
+      <li class="list-group-item">Pais de Origen: {{ currentInfo[0].location.country }}</li>
+      <li class="list-group-item">Ciudad: {{ currentInfo[0].location.city }}</li>
+      <li class="list-group-item">Dirección: {{ currentInfo[0].location.street.name }} N°{{ currentInfo[0].location.street.number }}</li>
+      <li class="list-group-item">Codigo Postal: {{ currentInfo[0].location.postcode }}</li>
+      <li class="list-group-item">Telefono: {{ currentInfo[0].phone }}</li>
+      <li class="list-group-item">Mail: {{ currentInfo[0].email }}</li>
+    </ul>
+  </div>
+</div>

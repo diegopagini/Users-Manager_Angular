@@ -11,6 +11,8 @@ import { MainComponent } from './public/dashboard/main/main.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { NotFoundComponent } from './public/not-found/not-found.component';
 import { HomeComponent } from './public/home/home.component';
+import { UserInfoComponent } from './public/user-info/user-info.component';
+import { ListComponent } from './public/dashboard/list/list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HomeComponent } from './public/home/home.component';
     MainComponent,
     FooterComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    UserInfoComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
