@@ -1,3 +1,22 @@
 .list{
-  background-color: #95ca3e;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.list-container{
+  height: 100%;
+  display: flex;
+  margin-left: 30%;
+  margin-right: 10%;
+  justify-content: space-between;
+  align-items: center;
+
+  li{
+    list-style: none;
+  }
+}
+
+.btn{
+  margin-top: 20px;
 }
