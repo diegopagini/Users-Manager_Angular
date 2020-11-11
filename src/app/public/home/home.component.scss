@@ -5,6 +5,19 @@
   background-attachment: fixed;
 }
 
+.section1 {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
 .section2 {
   height: 80vh;
   width: 100%;
