@@ -8,7 +8,9 @@ import { HeaderComponent } from './public/header/header.component';
 import { DashboardComponent } from './public/dashboard/dashboard.component';
 import { NavComponent } from './public/dashboard/nav/nav.component';
 import { MainComponent } from './public/dashboard/main/main.component';
-import { FooterComponent } from './public/dashboard/footer/footer.component';
+import { FooterComponent } from './public/footer/footer.component';
+import { NotFoundComponent } from './public/not-found/not-found.component';
+import { HomeComponent } from './public/home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FooterComponent } from './public/dashboard/footer/footer.component';
     DashboardComponent,
     NavComponent,
     MainComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
