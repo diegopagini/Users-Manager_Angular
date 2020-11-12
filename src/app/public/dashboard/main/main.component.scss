@@ -9,23 +9,5 @@
     justify-content: center;
     // display: grid;
     // grid-template-columns: repeat(3, 1fr);
-
-    .users {
-      background: white;
-      width: 300px;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
-      text-align: center;
-      margin: 5px;
-      padding: 5px;
-      border: 5px solid #ffffff;
-      border-radius: 15px;
-
-      img {
-        border: 3px solid #ffffff;
-        border-radius: 50%;
-      }
-    }
   }
 }

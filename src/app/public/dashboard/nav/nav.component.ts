@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  @Output() sendFilter = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onFilter(filtro) {
+    this.sendFilter.emit(filtro);
   }
 
 }

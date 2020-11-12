@@ -1,5 +1,5 @@
 <div class="dashboard">
-  <app-nav class="nav"></app-nav>
-  <app-main class="main"></app-main>
-  <app-list class="list"></app-list>
+  <app-nav class="nav" (sendFilter)="onSendFilter($event)"></app-nav>
+  <app-main class="main" *ngIf="usersData" [currentInfo]="usersData" [filterSelected]="filterSelected"></app-main>
+  <app-list class="list" *ngIf="usersData" [currentInfo]="usersData"></app-list>
 </div>

@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ApiService } from '../../../core/services/api.service';
 import { Users, UsersData } from '../../../core/interfaces/users.interface';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
@@ -9,18 +12,42 @@ import { Users, UsersData } from '../../../core/interfaces/users.interface';
 })
 export class MainComponent implements OnInit {
 
-  currentInfo: Array<UsersData>;
+  @Input() currentInfo: Array<UsersData>;
+  @Input() filterSelected: string;
+  searchControl = new FormControl('');
+  userDesdeHijo: UsersData;
 
-  constructor(public apiService: ApiService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.getUsers(); 
+  ngOnInit(): void { }
+
+  ngOnChanges(changes: SimpleChanges){
+    if (changes.filterSelected) {
+      if (changes.filterSelected.currentValue !== undefined) {
+        this.filterCurrentInfo(changes.filterSelected.currentValue);
+      }
+    }
   }
 
-  getUsers() {
-    this.apiService.getUsers().subscribe((response: Users) => {
-      this.currentInfo = response.results;
-      console.log('data', this.currentInfo);
+  filterCurrentInfo(filtro) {
+    if (filtro === "mayores") {
+      this.currentInfo = this.currentInfo.filter((el: UsersData) => {
+        return el.dob.age >= 60
+      });
+    }
+  }
+
+  onSendUser(userDesdeElHijo) {
+    this.userDesdeHijo = userDesdeElHijo;
+  } 
+
+  limpiarUserHijo() {
+    this.userDesdeHijo = null;
+  }
+
+  searching() {
+    this.currentInfo = this.currentInfo.filter((el: UsersData) => {
+      el.name.first == this.searchControl.value;
     })
   }
 

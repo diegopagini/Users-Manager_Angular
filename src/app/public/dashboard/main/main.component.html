@@ -1,10 +1,19 @@
-<div class="container">
-  <ul *ngIf="currentInfo" class="user-container row">
-    <li *ngFor="let user of currentInfo" class="users shadow-sm col-md-auto">
-      <img src="{{ user.picture.medium }}" alt="{{ user.name.first }}" class="shadow">
-      <h6>Nombre: {{ user.name.first }} {{ user.name.last }}</h6>
-      <p>Edad: {{ user.dob.age }}</p>
-      <button class="btn btn-success" routerLink="/users" routerLinkActive="active">Mostrar Más</button>
-    </li>
-  </ul>
+<div class="container" *ngIf="currentInfo">
+
+  <button class="btn" (click)="limpiarUserHijo()">Volver</button>
+
+  <div>
+    <input type="text" placeholder="Search" [formControl]="searchControl"> <button class="btn" (click)="searching()">Buscar</button>
+  </div>
+
+  <div *ngIf="userDesdeHijo else listaUsers">
+      <app-user-info [user]="userDesdeHijo"></app-user-info>
+  </div>
+
+  <ng-template #listaUsers>
+    <ul class="user-container row">
+      <app-item-list *ngFor="let user of currentInfo" [userData]="user" class="users shadow-sm col-md-auto" (sendUser)="onSendUser($event)"></app-item-list>
+    </ul>
+  </ng-template>
+
 </div>

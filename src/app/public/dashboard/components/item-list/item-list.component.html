@@ -1,0 +1,6 @@
+<li class="users shadow-sm col-md-auto">
+    <img src="{{ userData.picture.medium }}" alt="{{ userData.name.first }}" class="shadow">
+    <h6>Nombre: {{ userData.name.first }} {{ userData.name.last }}</h6>
+    <p>Edad: {{ userData.dob.age }}</p>
+    <button class="btn btn-success" (click)="selectUser(userData)" routerLinkActive="active">Mostrar Más</button>
+</li>

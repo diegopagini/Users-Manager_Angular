@@ -13,6 +13,8 @@ import { NotFoundComponent } from './public/not-found/not-found.component';
 import { HomeComponent } from './public/home/home.component';
 import { UserInfoComponent } from './public/user-info/user-info.component';
 import { ListComponent } from './public/dashboard/list/list.component';
+import { ItemListComponent } from './public/dashboard/components/item-list/item-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { ListComponent } from './public/dashboard/list/list.component';
     NotFoundComponent,
     HomeComponent,
     UserInfoComponent,
-    ListComponent
+    ListComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

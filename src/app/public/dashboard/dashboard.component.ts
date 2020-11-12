@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Users, UsersData } from 'src/app/core/interfaces/users.interface';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  usersLength = [];
+  usersData: Array<UsersData>;
+  filterSelected: string;
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.getUsers();
+  }
+  
+  getUsers() {
+    this.apiService.getUsers().subscribe((data: Users) => {
+      console.log(data)
+      this.usersData = data.results;
+    })
   }
 
+  onSendFilter(filter) {
+    this.filterSelected = filter;
+  }
 }
