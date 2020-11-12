@@ -1,4 +1,5 @@
 export interface Users {
+  filter(): number;
   results: Array<UsersData>;
 }
 
