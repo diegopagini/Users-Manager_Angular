@@ -3,7 +3,7 @@
   <button class="btn" (click)="limpiarUserHijo()">Volver</button>
 
   <div>
-    <input type="text" placeholder="Search" [formControl]="searchControl"> <button class="btn" (click)="searching()">Buscar</button>
+    <input type="text" placeholder="Search" (keyup.enter)="searching()" [formControl]="searchControl"> <button class="btn" (click)="searching()">Buscar</button>
   </div>
 
   <div *ngIf="userDesdeHijo else listaUsers">
@@ -12,7 +12,7 @@
 
   <ng-template #listaUsers>
     <ul class="user-container row">
-      <app-item-list *ngFor="let user of currentInfo" [userData]="user" class="users shadow-sm col-md-auto" (sendUser)="onSendUser($event)"></app-item-list>
+      <app-item-list *ngFor="let user of userList" [userData]="user" class="users shadow-sm col-md-auto" (sendUser)="onSendUser($event)"></app-item-list>
     </ul>
   </ng-template>
 

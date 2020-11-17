@@ -12,14 +12,36 @@ import { FormControl } from '@angular/forms';
 })
 export class MainComponent implements OnInit {
 
+  //currentInfo = ['eze','diego','mauro','damian']
+  // filterResult = ['eze','diego','mauro','damian'] = currentInfo
+
+
+
+
+  //input 'eze'
+  //backup = this.currentInfo.filter('eze')
+  
+
+
   @Input() currentInfo: Array<UsersData>;
   @Input() filterSelected: string;
   searchControl = new FormControl('');
   userDesdeHijo: UsersData;
+  filterResult: Array<UsersData> = [];
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.listenSearch();
+  }
+
+  listenSearch() {
+    this.searchControl.valueChanges.subscribe(res => {
+      this.filterResult = this.currentInfo.filter((el: UsersData) => {
+        return el.name.first.toLocaleLowerCase().includes(res);
+      })
+    })
+  }
 
   ngOnChanges(changes: SimpleChanges){
     if (changes.filterSelected) {
@@ -31,7 +53,7 @@ export class MainComponent implements OnInit {
 
   filterCurrentInfo(filtro) {
     if (filtro === "mayores") {
-      this.currentInfo = this.currentInfo.filter((el: UsersData) => {
+      this.filterResult = this.currentInfo.filter((el: UsersData) => {
         return el.dob.age >= 60
       });
     }
@@ -46,9 +68,16 @@ export class MainComponent implements OnInit {
   }
 
   searching() {
-    this.currentInfo = this.currentInfo.filter((el: UsersData) => {
-      el.name.first == this.searchControl.value;
-    })
+    console.log('searching')
+    console.log('dato del input ',this.searchControl.value)
+
+    if (this.searchControl.value != '') {
+      this.filterResult = this.currentInfo.filter((el: UsersData) => {
+        return el.name.first.toLocaleLowerCase().includes(this.searchControl.value.toLocaleLowerCase());
+      })
+    } else {
+      this.filterResult = this.currentInfo;
+    }
   }
 
 }
